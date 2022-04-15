@@ -6,23 +6,17 @@
 </head>
 <body>
   <script>
-   //Your game is going to play against the computer, 
-   //so begin with a function called computerPlay that will 
-   //randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
-
-   function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    
+var choice = Math.random() * 3
+if (choice <= 1) {
+    choice = "Rock";
+} else if (choice <= 2) {
+    choice = "Paper";
+} else {
+    choice = "Scissors";
 }
+console.log(choice)
 
-var computerResponse = getRandomInt(1, 3);
-console.log(computerResponse)
-
-  function computerPlay() {
-    return "Rock";
-  }
-  
-  let x = computerPlay()
-  console.log(x)
 
   </script>
 </body>
