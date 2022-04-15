@@ -29,8 +29,13 @@ console.log(computerSelection)
 
 //get input from player for rock paper scissors
 
-let playerSelection = prompt("Choose your fighter: Rock, Paper or Scissors")
-console.log(playerSelection)
+let playerChoice = prompt("Choose your fighter: Rock, Paper or Scissors")
+console.log(playerChoice)
+
+//Make your function’s playerSelection parameter case-insensitive 
+//(so users can input rock, ROCK, RocK or any other variation).
+
+let playerSelection = playerChoice.toLowerCase();
 
 //Write a function that plays a single round of Rock Paper Scissors. 
 //The function should take two parameters - the playerSelection and computerSelection - 
@@ -38,24 +43,26 @@ console.log(playerSelection)
 //"You Lose! Paper beats Rock"
 
 
+/*
+
 function theDeterminer() {
-if (playerSelection == "Rock" && computerSelection == "Rock") {
+if (playerSelection == "rock" && computerSelection == "Rock") {
   result = "Y'all tied"
-} else if (playerSelection == "Rock" && computerSelection == "Paper") {
+} else if (playerSelection == "rock" && computerSelection == "Paper") {
   result = "You Lose! Paper beats Rock"
-} else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+} else if (playerSelection == "rock" && computerSelection == "Scissors") {
   result = "You Win! Rock beats Scissors"
-} else if (playerSelection == "Paper" && computerSelection == "Rock") {
+} else if (playerSelection == "paper" && computerSelection == "Rock") {
   result = "You Win! Paper beats Rock"
-} else if (playerSelection == "Paper" && computerSelection == "Paper") {
+} else if (playerSelection == "paper" && computerSelection == "Paper") {
   result = "Y'all tied'"
-} else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+} else if (playerSelection == "Papaperper" && computerSelection == "Scissors") {
   result = "You Lose! Scissors beats Paper"
-} else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+} else if (playerSelection == "scissors" && computerSelection == "Rock") {
   result = "You Lose! Rock beats Scissors"
-} else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+} else if (playerSelection == "scissors" && computerSelection == "Paper") {
   result = "You Win! Scissors beats Paper"
-} else if (playerSelection == "Scissors" && computerSelection == "Scissors") {
+} else if (playerSelection == "scissors" && computerSelection == "Scissors") {
   result = "Y'all tied"
 } else {
   result = "Truly no idea how this happened."
@@ -63,6 +70,37 @@ if (playerSelection == "Rock" && computerSelection == "Rock") {
 }
 
 theDeterminer()
+console.log(result)
+
+*/
+
+//So that function isn't really what I needed, I'm going to try again
+
+function playARound(player, computer) {
+  if (player == "rock" && computer == "Rock") {
+  result = "Y'all tied"
+} else if (player == "rock" && computer == "Paper") {
+  result = "You Lose! Paper beats Rock"
+} else if (player == "rock" && computer == "Scissors") {
+  result = "You Win! Rock beats Scissors"
+} else if (player == "paper" && computer == "Rock") {
+  result = "You Win! Paper beats Rock"
+} else if (player == "paper" && computer == "Paper") {
+  result = "Y'all tied'"
+} else if (player == "Papaperper" && computer == "Scissors") {
+  result = "You Lose! Scissors beats Paper"
+} else if (player == "scissors" && computer == "Rock") {
+  result = "You Lose! Rock beats Scissors"
+} else if (player == "scissors" && computer == "Paper") {
+  result = "You Win! Scissors beats Paper"
+} else if (player == "scissors" && computer == "Scissors") {
+  result = "Y'all tied"
+} else {
+  result = "You chose poorly. Pick your fighter, and have some care."
+}
+}
+
+playARound(playerSelection, computerSelection)
 console.log(result)
 
   </script>
