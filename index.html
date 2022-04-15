@@ -6,17 +6,64 @@
 </head>
 <body>
   <script>
-    
-var choice = Math.random() * 3
-if (choice <= 1) {
-    choice = "Rock";
-} else if (choice <= 2) {
-    choice = "Paper";
-} else {
-    choice = "Scissors";
-}
-console.log(choice)
 
+//Your game is going to play against the computer, 
+//so begin with a function called computerPlay that
+// will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
+
+var computerSelection = Math.random() * 3
+
+function computerPlay() {
+if (computerSelection <= 1) {
+  computerSelection = "Rock";
+} else if (computerSelection <= 2) {
+  computerSelection = "Paper";
+} else {
+  computerSelection = "Scissors";
+}
+return computerSelection
+}
+
+computerPlay()
+console.log(computerSelection)
+
+//get input from player for rock paper scissors
+
+let playerSelection = prompt("Choose your fighter: Rock, Paper or Scissors")
+console.log(playerSelection)
+
+//Write a function that plays a single round of Rock Paper Scissors. 
+//The function should take two parameters - the playerSelection and computerSelection - 
+//and then return a string that declares the winner of the round like so: 
+//"You Lose! Paper beats Rock"
+
+
+function theDeterminer() {
+if (playerSelection == "Rock" && computerSelection == "Rock") {
+  result = "Y'all tied"
+} else if (playerSelection == "Rock" && computerSelection == "Paper") {
+  result = "You Lose! Paper beats Rock"
+} else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+  result = "You Win! Rock beats Scissors"
+} else if (playerSelection == "Paper" && computerSelection == "Rock") {
+  result = "You Win! Paper beats Rock"
+} else if (playerSelection == "Paper" && computerSelection == "Paper") {
+  result = "Y'all tied'"
+} else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+  result = "You Lose! Scissors beats Paper"
+} else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+  result = "You Lose! Rock beats Scissors"
+} else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+  result = "You Win! Scissors beats Paper"
+} else if (playerSelection == "Scissors" && computerSelection == "Scissors") {
+  result = "Y'all tied"
+} else {
+  result = "Truly no idea how this happened."
+}
+}
+
+theDeterminer()
+console.log(result)
 
   </script>
 </body>
