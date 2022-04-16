@@ -86,7 +86,7 @@ function playARound(player, computer) {
 } else if (player == "paper" && computer == "Rock") {
   result = "You Win! Paper beats Rock"
 } else if (player == "paper" && computer == "Paper") {
-  result = "Y'all tied'"
+  result = "Y'all tied"
 } else if (player == "Papaperper" && computer == "Scissors") {
   result = "You Lose! Scissors beats Paper"
 } else if (player == "scissors" && computer == "Rock") {
@@ -98,6 +98,7 @@ function playARound(player, computer) {
 } else {
   result = "You chose poorly. Pick your fighter, and have some care."
 }
+return result;
 }
 
 playARound(playerSelection, computerSelection)
