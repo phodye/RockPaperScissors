@@ -7,74 +7,10 @@
 <body>
   <script>
 
-//Your game is going to play against the computer, 
-//so begin with a function called computerPlay that
-// will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
-
-var computerSelection = Math.random() * 3
-
-function computerPlay() {
-if (computerSelection <= 1) {
-  computerSelection = "Rock";
-} else if (computerSelection <= 2) {
-  computerSelection = "Paper";
-} else {
-  computerSelection = "Scissors";
-}
-return computerSelection
-}
-
-computerPlay()
-console.log(computerSelection)
-
-//get input from player for rock paper scissors
-
-let playerChoice = prompt("Choose your fighter: Rock, Paper or Scissors")
-console.log(playerChoice)
-
-//Make your function’s playerSelection parameter case-insensitive 
-//(so users can input rock, ROCK, RocK or any other variation).
-
-let playerSelection = playerChoice.toLowerCase();
-
 //Write a function that plays a single round of Rock Paper Scissors. 
 //The function should take two parameters - the playerSelection and computerSelection - 
 //and then return a string that declares the winner of the round like so: 
 //"You Lose! Paper beats Rock"
-
-
-/*
-
-function theDeterminer() {
-if (playerSelection == "rock" && computerSelection == "Rock") {
-  result = "Y'all tied"
-} else if (playerSelection == "rock" && computerSelection == "Paper") {
-  result = "You Lose! Paper beats Rock"
-} else if (playerSelection == "rock" && computerSelection == "Scissors") {
-  result = "You Win! Rock beats Scissors"
-} else if (playerSelection == "paper" && computerSelection == "Rock") {
-  result = "You Win! Paper beats Rock"
-} else if (playerSelection == "paper" && computerSelection == "Paper") {
-  result = "Y'all tied'"
-} else if (playerSelection == "Papaperper" && computerSelection == "Scissors") {
-  result = "You Lose! Scissors beats Paper"
-} else if (playerSelection == "scissors" && computerSelection == "Rock") {
-  result = "You Lose! Rock beats Scissors"
-} else if (playerSelection == "scissors" && computerSelection == "Paper") {
-  result = "You Win! Scissors beats Paper"
-} else if (playerSelection == "scissors" && computerSelection == "Scissors") {
-  result = "Y'all tied"
-} else {
-  result = "Truly no idea how this happened."
-}
-}
-
-theDeterminer()
-console.log(result)
-
-*/
-
-//So that function isn't really what I needed, I'm going to try again
 
 function playARound(player, computer) {
   if (player == "rock" && computer == "Rock") {
@@ -87,7 +23,7 @@ function playARound(player, computer) {
   result = "You Win! Paper beats Rock"
 } else if (player == "paper" && computer == "Paper") {
   result = "Y'all tied"
-} else if (player == "Papaperper" && computer == "Scissors") {
+} else if (player == "paper" && computer == "Scissors") {
   result = "You Lose! Scissors beats Paper"
 } else if (player == "scissors" && computer == "Rock") {
   result = "You Lose! Rock beats Scissors"
@@ -101,9 +37,64 @@ function playARound(player, computer) {
 return result;
 }
 
-playARound(playerSelection, computerSelection)
-console.log(result)
+function scoreCounter(input) {
+  let wins = 0
+  let loses = 0
+  let ties = 0
+  if (input == "You Win! Rock beats Scissors" || "You Win! Paper beats Rock" || "You Win! Scissors beats Paper") {
+    wins++
+  } else if (input == "You Lose! Paper beats Rock" || "You Lose! Scissors beats Paper" || "You Lose! Rock beats Scissors") {
+    loses++
+  } else {
+    ties++
+  }
+  return [wins, loses, ties];
+}
 
+//Write a NEW function called game(). Call the playRound function inside of 
+//this one to play a 5 round game that keeps score and reports a winner or loser at the end. 
+
+function game() {
+
+  for (let i = 0; i < 5; i++) {
+    //computer selection, rock paper or scissors
+    var computerSelection = Math.random() * 3
+
+      function computerPlay() {
+       if (computerSelection <= 1) {
+         computerSelection = "Rock";
+       } else if (computerSelection <= 2) {
+          computerSelection = "Paper";
+       } else {
+         computerSelection = "Scissors";
+        }
+       return computerSelection
+      }
+    computerPlay()
+
+    //player selection, same options
+    let playerChoice = prompt("Choose your fighter: Rock, Paper or Scissors")
+    let playerSelection = playerChoice.toLowerCase();
+    
+    //initilizes the round function
+    playARound(playerSelection, computerSelection)
+
+    //logs the result of each round
+    console.log(result)
+      
+    //initilizes the score function
+    scoreCounter(result)
+    
+    //log the score counter
+    console.log(scoreCounter())
+}
+
+}
+
+//calls the game to play
+game()
+
+ 
   </script>
 </body>
 </html>
