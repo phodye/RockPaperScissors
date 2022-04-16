@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Page Title</title>
+  <title>Rock Paper Scissors</title>
 </head>
 <body>
   <script>
@@ -16,19 +16,19 @@ function playARound(player, computer) {
   if (player == "rock" && computer == "Rock") {
   result = "Y'all tied"
 } else if (player == "rock" && computer == "Paper") {
-  result = "You Lose! Paper beats Rock"
+  result = "You Lose!"
 } else if (player == "rock" && computer == "Scissors") {
-  result = "You Win! Rock beats Scissors"
+  result = "You Win!"
 } else if (player == "paper" && computer == "Rock") {
-  result = "You Win! Paper beats Rock"
+  result = "You Win!"
 } else if (player == "paper" && computer == "Paper") {
   result = "Y'all tied"
 } else if (player == "paper" && computer == "Scissors") {
-  result = "You Lose! Scissors beats Paper"
+  result = "You Lose!"
 } else if (player == "scissors" && computer == "Rock") {
-  result = "You Lose! Rock beats Scissors"
+  result = "You Lose!"
 } else if (player == "scissors" && computer == "Paper") {
-  result = "You Win! Scissors beats Paper"
+  result = "You Win!"
 } else if (player == "scissors" && computer == "Scissors") {
   result = "Y'all tied"
 } else {
@@ -37,18 +37,30 @@ function playARound(player, computer) {
 return result;
 }
 
-function scoreCounter(input) {
-  let wins = 0
-  let loses = 0
-  let ties = 0
-  if (input == "You Win! Rock beats Scissors" || "You Win! Paper beats Rock" || "You Win! Scissors beats Paper") {
+//function to count the score
+let wins = 0
+let loses = 0
+let ties = 0
+
+function winsCounter(input) {
+  if (input === "You Win!") {
     wins++
-  } else if (input == "You Lose! Paper beats Rock" || "You Lose! Scissors beats Paper" || "You Lose! Rock beats Scissors") {
-    loses++
-  } else {
-    ties++
   }
-  return [wins, loses, ties];
+  return wins;
+}
+
+function losesCounter(input) {
+  if (input === "You Lose!") {
+    loses++
+  }
+  return loses;
+}
+
+function tiesCounter(input) {
+  if (input === "Y'all tied") {
+     ties++
+  }
+  return ties;
 }
 
 //Write a NEW function called game(). Call the playRound function inside of 
@@ -58,7 +70,7 @@ function game() {
 
   for (let i = 0; i < 5; i++) {
     //computer selection, rock paper or scissors
-    var computerSelection = Math.random() * 3
+    let computerSelection = Math.random() * 3
 
       function computerPlay() {
        if (computerSelection <= 1) {
@@ -81,18 +93,23 @@ function game() {
 
     //logs the result of each round
     console.log(result)
-      
-    //initilizes the score function
-    scoreCounter(result)
-    
-    //log the score counter
-    console.log(scoreCounter())
-}
+
+    //updates the win, lose, tie count
+    winsCounter(result)
+    losesCounter(result)
+    tiesCounter(result)
+  }
 
 }
-
 //calls the game to play
 game()
+if (wins > loses) {
+  console.log("You won! You beat the computer!")
+} else if (loses > wins) {
+  console.log("You lost! Bow down to the robotic overlords!")
+} else {
+  console.log("You tied the computer, how unsatisfying.")
+}
 
  
   </script>
