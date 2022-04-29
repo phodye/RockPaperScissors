@@ -1,9 +1,9 @@
 
 //create buttons and add them to page
-const container = document.querySelector('#container');
-container.style.display = "flex";
-container.style.alignItems = "center";
-container.style.justifyContent = "center";
+const buttoncontainer = document.querySelector('#container');
+buttoncontainer.style.display = "flex";
+buttoncontainer.style.alignItems = "center";
+buttoncontainer.style.justifyContent = "center";
 
 const rock = document.createElement("button");
 rock.textContent = "Rock"
@@ -14,7 +14,8 @@ rock.addEventListener('click', () => {
 	playerChoice = "Rock";
     console.log(playerChoice);
 });
-container.appendChild(rock);
+rock.addEventListener('click', game);
+buttoncontainer.appendChild(rock);
 
 const paper = document.createElement("button");
 paper.textContent = "Paper"
@@ -25,7 +26,8 @@ paper.addEventListener('click', () => {
 	playerChoice = "Paper";
     console.log(playerChoice);
 });
-container.appendChild(paper);
+paper.addEventListener('click', game);
+buttoncontainer.appendChild(paper);
 
 
 const scissors = document.createElement("button");
@@ -37,7 +39,10 @@ scissors.addEventListener('click', () => {
 	playerChoice = "Scissors";
     console.log(playerChoice);
 });
-container.appendChild(scissors);
+scissors.addEventListener('click', game);
+buttoncontainer.appendChild(scissors);
+
+
 
 
 
@@ -71,7 +76,7 @@ function playARound(player, computer) {
   return result;
   }
   
-  //function to count the score
+  //functions to count the score
   let wins = 0
   let loses = 0
   let ties = 0
@@ -79,6 +84,7 @@ function playARound(player, computer) {
   function winsCounter(input) {
     if (input === "You Win!") {
       wins++
+      totalWins.textContent = `Wins: ${wins}`
     }
     return wins;
   }
@@ -86,6 +92,7 @@ function playARound(player, computer) {
   function losesCounter(input) {
     if (input === "You Lose!") {
       loses++
+      totalLoses.textContent = `Loses: ${loses}`
     }
     return loses;
   }
@@ -93,16 +100,14 @@ function playARound(player, computer) {
   function tiesCounter(input) {
     if (input === "Y'all tied") {
        ties++
+       totalTies.textContent = `Ties: ${ties}`
     }
     return ties;
   }
   
-  //Write a NEW function called game(). Call the playRound function inside of 
-  //this one to play a 5 round game that keeps score and reports a winner or loser at the end. 
   
   function game() {
   
-    for (let i = 0; i < 5; i++) {
       //computer selection, rock paper or scissors
       let computerSelection = Math.random() * 3
   
@@ -118,33 +123,82 @@ function playARound(player, computer) {
         }
       computerPlay()
   
-      //player selection, same options
-      //let playerChoice = prompt("Choose your fighter: Rock, Paper or Scissors")
       let playerSelection = playerChoice.toLowerCase();
       
       //initilizes the round function
       playARound(playerSelection, computerSelection)
   
-      //logs the result of each round
-      console.log(result)
-  
       //updates the win, lose, tie count
       winsCounter(result)
       losesCounter(result)
       tiesCounter(result)
+
+     //logs the result of each round
+     console.log(result)
+
+     finalResult()
     }
+
+
+//score keeping
+const scorecontainer = document.querySelector('#scorekeeper');
+scorecontainer.style.display = "flex";
+scorecontainer.style.alignItems = "center";
+scorecontainer.style.justifyContent = "center";
+scorecontainer.style.textAlign = "center";
+
+const totalWins = document.createElement("div");
+totalWins.textContent = `Wins: ${wins}`;
+totalWins.style.border = "thin solid #000000";
+totalWins.style.padding = "10px 10px 10px 10px"; 
+totalWins.style.margin = "20px";
+totalWins.style.minWidth = "80px";
+scorecontainer.appendChild(totalWins);
+
+const totalLoses = document.createElement("div");
+totalLoses.textContent = `Loses: ${loses}`;
+totalLoses.style.border = "thin solid #000000";
+totalLoses.style.padding = "10px 10px 10px 10px"; 
+totalLoses.style.margin = "20px";
+totalLoses.style.minWidth = "80px";
+scorecontainer.appendChild(totalLoses);
+
+const totalTies = document.createElement("div");
+totalTies.textContent = `Ties: ${ties}`;
+totalTies.style.border = "thin solid #000000";
+totalTies.style.padding = "10px 10px 10px 10px"; 
+totalTies.style.margin = "20px";
+totalTies.style.minWidth = "80px";
+scorecontainer.appendChild(totalTies);
   
-  }
-  //calls the game to play
-  //game()
   
-  //displays final message in console when considering wins/loses
-  if (wins > loses) {
-    console.log("You won! You beat the computer!")
-  } else if (loses > wins) {
-    console.log("You lost! Bow down to the robotic overlords!")
+
+  let finalMessage = "";
+
+  const lastDisplay = document.querySelector('#scoring');
+  lastDisplay.style.display = "flex";
+  lastDisplay.style.alignItems = "center";
+  lastDisplay.style.justifyContent = "center";
+  lastDisplay.style.textAlign = "center";
+
+  const messageEquals = document.createElement('div');
+  messageEquals.textContent = `${finalMessage}`;
+  messageEquals.style.border = "medium solid #000000";
+  messageEquals.style.padding = "10px 10px 10px 10px"; 
+  messageEquals.style.margin = "20px";
+  messageEquals.style.minWidth = "300px";
+  messageEquals.style.minHeight = "80px";
+  lastDisplay.appendChild(messageEquals);
+
+  
+  function finalResult() {
+  if (wins + loses === 5 && wins > loses) {
+    messageEquals.textContent = "You won! You beat the computer!"
+  } else if (wins + loses === 5 && loses > wins) {
+    messageEquals.textContent = "You lost! Bow down to the robotic overlords!"
   } else {
-    console.log("You tied the computer, how unsatisfying.")
+    //console.log("You tied the computer, how unsatisfying.")
   }
+}
   
    
