@@ -1,3 +1,35 @@
+
+//create buttons and add them to page
+const container = document.querySelector('#container');
+container.style.display = "flex";
+container.style.alignItems = "center";
+container.style.justifyContent = "center";
+
+const rock = document.createElement("button");
+rock.textContent = "Rock"
+rock.style.padding = "10px 10px 10px 10px"; 
+rock.style.margin = "20px";
+rock.style.minWidth = "80px";
+container.appendChild(rock);
+
+const paper = document.createElement("button");
+paper.textContent = "Paper"
+paper.style.padding = "10px 10px 10px 10px"; 
+paper.style.margin = "20px";
+paper.style.minWidth = "80px";
+container.appendChild(paper);
+
+
+const scissors = document.createElement("button");
+scissors.textContent = "Scissors"
+scissors.style.padding = "10px 10px 10px 10px"; 
+scissors.style.margin = "20px";
+scissors.style.minWidth = "80px";
+container.appendChild(scissors);
+
+
+
+
 //Write a function that plays a single round of Rock Paper Scissors. 
 //The function should take two parameters - the playerSelection and computerSelection - 
 //and then return a string that declares the winner of the round like so: 
@@ -93,7 +125,7 @@ function playARound(player, computer) {
   
   }
   //calls the game to play
-  game()
+  //game()
   
   //displays final message in console when considering wins/loses
   if (wins > loses) {
