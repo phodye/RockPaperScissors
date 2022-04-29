@@ -10,6 +10,10 @@ rock.textContent = "Rock"
 rock.style.padding = "10px 10px 10px 10px"; 
 rock.style.margin = "20px";
 rock.style.minWidth = "80px";
+rock.addEventListener('click', () => {
+	playerChoice = "Rock";
+    console.log(playerChoice);
+});
 container.appendChild(rock);
 
 const paper = document.createElement("button");
@@ -17,6 +21,10 @@ paper.textContent = "Paper"
 paper.style.padding = "10px 10px 10px 10px"; 
 paper.style.margin = "20px";
 paper.style.minWidth = "80px";
+paper.addEventListener('click', () => {
+	playerChoice = "Paper";
+    console.log(playerChoice);
+});
 container.appendChild(paper);
 
 
@@ -25,8 +33,11 @@ scissors.textContent = "Scissors"
 scissors.style.padding = "10px 10px 10px 10px"; 
 scissors.style.margin = "20px";
 scissors.style.minWidth = "80px";
+scissors.addEventListener('click', () => {
+	playerChoice = "Scissors";
+    console.log(playerChoice);
+});
 container.appendChild(scissors);
-
 
 
 
@@ -108,7 +119,7 @@ function playARound(player, computer) {
       computerPlay()
   
       //player selection, same options
-      let playerChoice = prompt("Choose your fighter: Rock, Paper or Scissors")
+      //let playerChoice = prompt("Choose your fighter: Rock, Paper or Scissors")
       let playerSelection = playerChoice.toLowerCase();
       
       //initilizes the round function
