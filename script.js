@@ -12,7 +12,6 @@ rock.style.margin = "20px";
 rock.style.minWidth = "80px";
 rock.addEventListener('click', () => {
 	playerChoice = "Rock";
-    console.log(playerChoice);
 });
 rock.addEventListener('click', game);
 buttoncontainer.appendChild(rock);
@@ -24,7 +23,6 @@ paper.style.margin = "20px";
 paper.style.minWidth = "80px";
 paper.addEventListener('click', () => {
 	playerChoice = "Paper";
-    console.log(playerChoice);
 });
 paper.addEventListener('click', game);
 buttoncontainer.appendChild(paper);
@@ -37,7 +35,6 @@ scissors.style.margin = "20px";
 scissors.style.minWidth = "80px";
 scissors.addEventListener('click', () => {
 	playerChoice = "Scissors";
-    console.log(playerChoice);
 });
 scissors.addEventListener('click', game);
 buttoncontainer.appendChild(scissors);
@@ -122,11 +119,25 @@ function playARound(player, computer) {
          return computerSelection
         }
       computerPlay()
+      console.log(computerSelection);
   
       let playerSelection = playerChoice.toLowerCase();
       
       //initilizes the round function
       playARound(playerSelection, computerSelection)
+
+      //display photos
+      displayUserPhoto()
+      function displayCompPhoto() {
+        if (computerSelection === "Rock") {
+            compChoicePhoto.setAttribute('src', 'img/rock.jpg'); 
+        } else if (computerSelection === "Paper") {
+            compChoicePhoto.setAttribute('src', 'img/paper.jpg');
+        } else if (computerSelection === "Scissors") {
+            compChoicePhoto.setAttribute('src', 'img/scissors.jpg');
+        }
+    }
+    displayCompPhoto()
   
       //updates the win, lose, tie count
       winsCounter(result)
@@ -138,6 +149,28 @@ function playARound(player, computer) {
 
      finalResult()
     }
+//rps display
+const photocontainer = document.querySelector('#photos');
+photocontainer.style.display = "flex";
+photocontainer.style.alignItems = "center";
+photocontainer.style.justifyContent = "center";
+photocontainer.style.textAlign = "center";
+
+const userChoicePhoto = document.createElement("img");
+userChoicePhoto.style.border = "thin solid #000000";
+userChoicePhoto.style.padding = "10px 10px 10px 10px"; 
+userChoicePhoto.style.margin = "20px";
+userChoicePhoto.style.width = "300px";
+userChoicePhoto.style.height = "300px";
+photocontainer.appendChild(userChoicePhoto);
+
+const compChoicePhoto = document.createElement("img");
+compChoicePhoto.style.border = "thin solid #000000";
+compChoicePhoto.style.padding = "10px 10px 10px 10px"; 
+compChoicePhoto.style.margin = "20px";
+compChoicePhoto.style.width = "300px";
+compChoicePhoto.style.height = "300px";
+photocontainer.appendChild(compChoicePhoto);
 
 
 //score keeping
@@ -187,7 +220,8 @@ scorecontainer.appendChild(totalTies);
   messageEquals.style.padding = "10px 10px 10px 10px"; 
   messageEquals.style.margin = "20px";
   messageEquals.style.minWidth = "300px";
-  messageEquals.style.minHeight = "80px";
+  messageEquals.style.minHeight = "60px";
+  messageEquals.style.padding = "20px";
   lastDisplay.appendChild(messageEquals);
 
   
@@ -200,5 +234,17 @@ scorecontainer.appendChild(totalTies);
     //console.log("You tied the computer, how unsatisfying.")
   }
 }
+
+function displayUserPhoto() {
+    if (playerChoice === "Rock") {
+        userChoicePhoto.setAttribute('src', 'img/rock.jpg'); 
+    } else if (playerChoice === "Paper") {
+        userChoicePhoto.setAttribute('src', 'img/paper.jpg');
+    } else if (playerChoice === "Scissors") {
+        userChoicePhoto.setAttribute('src', 'img/scissors.jpg');
+    }
+}
+
+
   
    
