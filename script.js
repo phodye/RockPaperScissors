@@ -1,3 +1,16 @@
+//title
+const title = document.querySelector('section');
+
+const RPStitle = document.createElement("h1");
+RPStitle.textContent = "Rock Paper Scissors";
+RPStitle.style.display = "flex";
+RPStitle.style.alignItems = "center";
+RPStitle.style.justifyContent = "center";
+RPStitle.style.fontSize = "60px";
+RPStitle.style.padding = "10px";
+RPStitle.style.margin = "1px";
+title.insertBefore(RPStitle, container);
+
 
 //create buttons and add them to page
 const buttoncontainer = document.querySelector('#container');
@@ -126,18 +139,21 @@ function playARound(player, computer) {
       //initilizes the round function
       playARound(playerSelection, computerSelection)
 
-      //display photos
-      displayUserPhoto()
-      function displayCompPhoto() {
+      //display photos/text
+      displayUserSelections()
+      function displayCompSelections() {
         if (computerSelection === "Rock") {
             compChoicePhoto.setAttribute('src', 'img/rock.jpg'); 
+            compSelectionDisplay.textContent = "ROCK";
         } else if (computerSelection === "Paper") {
             compChoicePhoto.setAttribute('src', 'img/paper.jpg');
+            compSelectionDisplay.textContent = "PAPER";
         } else if (computerSelection === "Scissors") {
             compChoicePhoto.setAttribute('src', 'img/scissors.jpg');
+            compSelectionDisplay.textContent = "SCISSORS";
         }
     }
-    displayCompPhoto()
+    displayCompSelections()
   
       //updates the win, lose, tie count
       winsCounter(result)
@@ -224,6 +240,34 @@ scorecontainer.appendChild(totalTies);
   messageEquals.style.padding = "20px";
   lastDisplay.appendChild(messageEquals);
 
+  //round by round words 
+  const roundWordsContainer = document.querySelector('#roundwords');
+  roundWordsContainer.style.display = "flex";
+  roundWordsContainer.style.alignItems = "center";
+  roundWordsContainer.style.justifyContent = "center";
+  roundWordsContainer.style.textAlign = "center";
+
+
+   const userSelectionDisplay = document.createElement('div');
+   userSelectionDisplay.style.padding = "10px 10px 10px 10px";
+   userSelectionDisplay.style.fontSize = "60px";
+   userSelectionDisplay.style.margin = "auto";
+   roundWordsContainer.appendChild(userSelectionDisplay);
+
+   const vs = document.createElement('div');
+   vs.textContent = "VERSUS";
+   vs.style.fontSize = "40px";
+   vs.style.justifyContent = "center";
+   vs.style.position = "absolute";
+   vs.style.padding = "40px"
+   roundWordsContainer.appendChild(vs);
+
+   const compSelectionDisplay = document.createElement('div');
+   compSelectionDisplay.style.padding = "10px 10px 10px 10px"; 
+   compSelectionDisplay.style.fontSize = "60px";
+   compSelectionDisplay.style.margin = "auto";
+   roundWordsContainer.appendChild(compSelectionDisplay);
+
   
   function finalResult() {
   if (wins + loses === 5 && wins > loses) {
@@ -235,13 +279,16 @@ scorecontainer.appendChild(totalTies);
   }
 }
 
-function displayUserPhoto() {
+function displayUserSelections() {
     if (playerChoice === "Rock") {
         userChoicePhoto.setAttribute('src', 'img/rock.jpg'); 
+        userSelectionDisplay.textContent = "ROCK";
     } else if (playerChoice === "Paper") {
         userChoicePhoto.setAttribute('src', 'img/paper.jpg');
+        userSelectionDisplay.textContent = "PAPER";
     } else if (playerChoice === "Scissors") {
         userChoicePhoto.setAttribute('src', 'img/scissors.jpg');
+        userSelectionDisplay.textContent = "SCISSORS";
     }
 }
 
