@@ -1,6 +1,9 @@
 # RockPaperScissors
 TOP Rock Paper Scissors Javascript Project
 
+May 2, 2022
+I've added a UI to the Rock Paper Scissors project. Getting elements to stick where you want them to is more difficult than I anticipated. Adding animations would be nice- I would like the results box to flash everytime a round is played. I would also like to end the functionality of the page after five rounds are played an add a reset button. 
+
 April 16, 2022
 I've completed my first iteration of the RPS project. 
 Still enjoying the TOP quite a bit, though this project was difficult. 
