@@ -11,6 +11,15 @@ RPStitle.style.padding = "10px";
 RPStitle.style.margin = "1px";
 title.insertBefore(RPStitle, container);
 
+const RPSinstr = document.createElement("p");
+RPSinstr.textContent = `Armageddon is upon us, unless you can beat the robots in a best of five game of Rock, Paper, Scissors. Choose your weapon in the battle against the robot overlords:`
+RPSinstr.style.maxWidth = "700px";
+RPSinstr.style.margin = "auto";
+RPSinstr.style.fontSize = "60px";
+RPSinstr.style.padding = "10px";
+RPSinstr.style.textAlign = "center";
+RPSinstr.style.fontSize = "16px";
+title.insertBefore(RPSinstr, container);
 
 //create buttons and add them to page
 const buttoncontainer = document.querySelector('#container');
@@ -21,7 +30,8 @@ buttoncontainer.style.justifyContent = "center";
 const rock = document.createElement("button");
 rock.textContent = "Rock"
 rock.style.padding = "10px 10px 10px 10px"; 
-rock.style.margin = "20px";
+rock.style.margin = "8px";
+rock.style.marginRight = "20px";
 rock.style.minWidth = "80px";
 rock.addEventListener('click', () => {
 	playerChoice = "Rock";
@@ -32,7 +42,7 @@ buttoncontainer.appendChild(rock);
 const paper = document.createElement("button");
 paper.textContent = "Paper"
 paper.style.padding = "10px 10px 10px 10px"; 
-paper.style.margin = "20px";
+paper.style.margin = "8px";
 paper.style.minWidth = "80px";
 paper.addEventListener('click', () => {
 	playerChoice = "Paper";
@@ -44,7 +54,8 @@ buttoncontainer.appendChild(paper);
 const scissors = document.createElement("button");
 scissors.textContent = "Scissors"
 scissors.style.padding = "10px 10px 10px 10px"; 
-scissors.style.margin = "20px";
+scissors.style.margin = "8px";
+scissors.style.marginLeft = "20px";
 scissors.style.minWidth = "80px";
 scissors.addEventListener('click', () => {
 	playerChoice = "Scissors";
@@ -254,7 +265,7 @@ scorecontainer.appendChild(totalTies);
    const userSelectionDisplay = document.createElement('div');
    userSelectionDisplay.style.padding = "10px 125px 10px 10px";
    userSelectionDisplay.style.fontSize = "40px";
-   userSelectionDisplay.style.minHeight = "50px";
+   userSelectionDisplay.style.minHeight = "40px";
    roundWordsContainer.appendChild(userSelectionDisplay);
 
    const vs = document.createElement('div');
@@ -268,7 +279,7 @@ scorecontainer.appendChild(totalTies);
    const compSelectionDisplay = document.createElement('div');
    compSelectionDisplay.style.padding = "10px 10px 10px 125px"; 
    compSelectionDisplay.style.fontSize = "40px";
-   compSelectionDisplay.style.minHeight = "50px";
+   compSelectionDisplay.style.minHeight = "40px";
    roundWordsContainer.appendChild(compSelectionDisplay);
 
   
