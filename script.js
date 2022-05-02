@@ -176,16 +176,16 @@ const userChoicePhoto = document.createElement("img");
 userChoicePhoto.style.border = "thin solid #000000";
 userChoicePhoto.style.padding = "10px 10px 10px 10px"; 
 userChoicePhoto.style.margin = "20px";
-userChoicePhoto.style.width = "300px";
-userChoicePhoto.style.height = "300px";
+userChoicePhoto.style.width = "200px";
+userChoicePhoto.style.height = "200px";
 photocontainer.appendChild(userChoicePhoto);
 
 const compChoicePhoto = document.createElement("img");
 compChoicePhoto.style.border = "thin solid #000000";
 compChoicePhoto.style.padding = "10px 10px 10px 10px"; 
 compChoicePhoto.style.margin = "20px";
-compChoicePhoto.style.width = "300px";
-compChoicePhoto.style.height = "300px";
+compChoicePhoto.style.width = "200px";
+compChoicePhoto.style.height = "200px";
 photocontainer.appendChild(compChoicePhoto);
 
 
@@ -234,10 +234,12 @@ scorecontainer.appendChild(totalTies);
   messageEquals.textContent = `${finalMessage}`;
   messageEquals.style.border = "medium solid #000000";
   messageEquals.style.padding = "10px 10px 10px 10px"; 
-  messageEquals.style.margin = "20px";
+  messageEquals.style.margin = "10px";
   messageEquals.style.minWidth = "300px";
   messageEquals.style.minHeight = "60px";
-  messageEquals.style.padding = "20px";
+  messageEquals.style.display = "flex";
+  messageEquals.style.alignItems = "center";
+  messageEquals.style.justifyContent = "center";
   lastDisplay.appendChild(messageEquals);
 
   //round by round words 
@@ -246,33 +248,34 @@ scorecontainer.appendChild(totalTies);
   roundWordsContainer.style.alignItems = "center";
   roundWordsContainer.style.justifyContent = "center";
   roundWordsContainer.style.textAlign = "center";
+  roundWordsContainer.style.minHeight = "40px";
 
 
    const userSelectionDisplay = document.createElement('div');
-   userSelectionDisplay.style.padding = "10px 10px 10px 10px";
-   userSelectionDisplay.style.fontSize = "60px";
-   userSelectionDisplay.style.margin = "auto";
+   userSelectionDisplay.style.padding = "10px 125px 10px 10px";
+   userSelectionDisplay.style.fontSize = "40px";
+   userSelectionDisplay.style.minHeight = "50px";
    roundWordsContainer.appendChild(userSelectionDisplay);
 
    const vs = document.createElement('div');
    vs.textContent = "VERSUS";
-   vs.style.fontSize = "40px";
+   vs.style.fontSize = "25px";
    vs.style.justifyContent = "center";
    vs.style.position = "absolute";
    vs.style.padding = "40px"
    roundWordsContainer.appendChild(vs);
 
    const compSelectionDisplay = document.createElement('div');
-   compSelectionDisplay.style.padding = "10px 10px 10px 10px"; 
-   compSelectionDisplay.style.fontSize = "60px";
-   compSelectionDisplay.style.margin = "auto";
+   compSelectionDisplay.style.padding = "10px 10px 10px 125px"; 
+   compSelectionDisplay.style.fontSize = "40px";
+   compSelectionDisplay.style.minHeight = "50px";
    roundWordsContainer.appendChild(compSelectionDisplay);
 
   
   function finalResult() {
-  if (wins + loses === 5 && wins > loses) {
+  if (wins + loses === 5 && wins > loses || wins === 3 ) {
     messageEquals.textContent = "You won! You beat the computer!"
-  } else if (wins + loses === 5 && loses > wins) {
+  } else if (wins + loses === 5 && loses > wins || loses === 3) {
     messageEquals.textContent = "You lost! Bow down to the robotic overlords!"
   } else {
     //console.log("You tied the computer, how unsatisfying.")
